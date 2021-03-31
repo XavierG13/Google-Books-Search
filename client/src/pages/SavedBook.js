@@ -45,7 +45,7 @@ function SavedBook() {
 										<Link to={'/books/' + book._id}>
 											<strong>
 												<img src={book.image} alt="search result"></img>
-												{book.title} by <span id="authorList">{book.author}</span>
+												{book.title} by <span id="author">{book.author}</span>
 											</strong>
 										</Link>
 										<ToBook link={book.link} />
