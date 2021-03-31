@@ -12,8 +12,14 @@ I WANT to be able to search for books and save my searches So that I am able to 
 ```
 
 ```
-Link: 
+Link: [Google Books Search](https://pacific-coast-77488.herokuapp.com/)
+
 ```
+
+## Images:
+
+![img](assets\googlebookssearch.png)
+![img](assets\googlebookssaved.png)
 
 ## Installation & Frameworks
 
@@ -22,6 +28,8 @@ Link:
 -   express
 -   path
 -   morgan
+-   react, react-router-dom, react-bootstrap
+-   axios
 
 ## Contributors
 
