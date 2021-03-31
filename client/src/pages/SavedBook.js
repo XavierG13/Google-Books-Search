@@ -3,8 +3,6 @@ import DeleteBtn from '../components/DeleteBtn';
 import Jumbotron from '../components/Jumbotron';
 import API from '../utils/API';
 import { Link } from 'react-router-dom';
-// import { Col, Row, Container } from '../components/Grid';
-
 import { Col, Container, Row } from 'react-bootstrap';
 import { List, ListItem } from '../components/List';
 import ToBook from '../components/ToBook';
@@ -32,34 +30,38 @@ function SavedBook() {
 			.then((res) => loadBooks())
 			.catch((err) => console.log(err));
 	}
-
-	<Container fluid>
-		<Row>
-			<Col size="md-6 sm-12">
-				<Jumbotron>
-					<h1>Saved for Later</h1>
-				</Jumbotron>
-				{books.length ? (
-					<List>
-						{books.map((book) => (
-							<ListItem key={book._id}>
-								<Link to={'/books/' + book._id}>
-									<strong>
-										<img src={book.image} alt="search result"></img>
-										{book.title} by <span id="authorList">{book.author}</span>
-									</strong>
-								</Link>
-								<ToBook link={book.link} />
-								<DeleteBtn onClick={() => deleteBook(book._id)} />
-							</ListItem>
-						))}
-					</List>
-				) : (
-					<h3>No Results to Display</h3>
-				)}
-			</Col>
-		</Row>
-	</Container>;
+	return (
+		<div>
+			<Container fluid>
+				<Row>
+					<Col size="md-6 sm-12">
+						<Jumbotron>
+							<h1>Saved for Later</h1>
+						</Jumbotron>
+						{books.length ? (
+							<List>
+								{books.map((book) => (
+									<ListItem key={book._id}>
+										<Link to={'/books/' + book._id}>
+											<strong>
+												<img src={book.image} alt="search result"></img>
+												{book.title} by <span id="authorList">{book.author}</span>
+											</strong>
+										</Link>
+										<ToBook link={book.link} />
+										<DeleteBtn onClick={() => deleteBook(book._id)} />
+									</ListItem>
+								))}
+							</List>
+						) : (
+							<h3>No Results to Display</h3>
+						)}
+					</Col>
+				</Row>
+			</Container>
+			;
+		</div>
+	);
 }
 
 export default SavedBook;
