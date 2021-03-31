@@ -3,8 +3,9 @@ import SaveBtn from '../components/SaveBtn';
 import GoogleAPI from '../utils/GoogleBooksAPI';
 import API from '../utils/API';
 import Jumbotron from '../components/Jumbotron';
-import ToBook from '';
-import { Col, Row, Container } from '../components/Grid';
+import ToBook from '../components/ToBook/index';
+// import { Col, Row, Container } from '../components/Grid';
+import { Col, Container, Row } from 'react-bootstrap';
 import { List, ListItem } from '../components/List';
 import { Input, FormBtn } from '../components/Form';
 
@@ -80,18 +81,23 @@ function SearchBook() {
 											{book.volumeInfo.title} by{' '}
 											<span id="authorList">{book.volumeInfo.authors}</span>
 										</strong>
-										<SaveBtn
-											onClick={() =>
-												saveBook(
-													book.volumeInfo.title,
-													book.volumeInfo.description,
-													book.volumeInfo.authors,
-													book.volumeInfo.imageLinks.thumbnail,
-													book.volumeInfo.previewLink
-												)
-											}
-										/>
-										<ToBook link={book.volumeInfo.previewLink} />
+
+										<Container className="justify-text-right">
+											<SaveBtn
+												onClick={() =>
+													saveBook(
+														book.volumeInfo.title,
+														book.volumeInfo.description,
+														book.volumeInfo.authors,
+														book.volumeInfo.imageLinks.thumbnail,
+														book.volumeInfo.previewLink
+													)
+												}
+											>
+												Save
+											</SaveBtn>
+											<ToBook link={book.volumeInfo.previewLink} />
+										</Container>
 									</ListItem>
 								))}
 							</List>
