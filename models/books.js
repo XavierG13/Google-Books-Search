@@ -6,10 +6,15 @@ const bookSchema = new Schema({
 	author: { type: String, required: true },
 	synopsis: String,
 	date: { type: Date, default: Date.now },
-	image: String,
-	link: String,
+	image: {
+		type: String,
+		required: true,
+	},
+	link: {
+		type: String,
+		required: true,
+	},
 });
-
 const Book = mongoose.model('Book', bookSchema);
 
 module.exports = Book;
